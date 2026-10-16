@@ -13,23 +13,24 @@
         top: 15px;
         left: 15px;
         z-index: 9999;
-        background: rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0.8);
         color: white;
-        padding: 8px 15px;
-        border-radius: 5px;
+        padding: 10px 18px;
+        border-radius: 6px;
         text-decoration: none;
         font-family: Arial, sans-serif;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         font-weight: bold;
         border: 1px solid #fff;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.4);
       }
     </style>
   </head>
   <body style="margin: 0px; overflow: hidden;">
-    <!-- Botão de retorno ao menu -->
+    <!-- Botão de retorno ao Menu Principal -->
     <a href="index.html" class="btn-voltar">← Voltar ao Menu</a>
 
-    <!-- A-Scene configurada para ler Hiro, Kanji e os códigos de barras 3x3 (0, 1, 2 e 3) -->
+    <!-- Configuração da Cena AR.js com modo de deteção combinado -->
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
 
       <!-- PONTO A: Barramento e Guias (Marcador Hiro) -->
@@ -48,7 +49,7 @@
         </a-plane>
       </a-marker>
 
-      <!-- PONTO C: Cabeçote Fixo (Marcador Barcode 0) -->
+      <!-- PONTO C: Cabeçote Fixo (Marcador Matriz C) -->
       <a-marker type="barcode" value="0">
         <a-cylinder position="0 0.5 0" radius="0.12" height="0.04" color="#2ECC71" animation="property: rotation; to: 0 360 0; loop: true; dur: 3000"></a-cylinder>
         <a-plane position="0 1.2 0" rotation="-30 0 0" width="2.2" height="0.8" color="#111" opacity="0.9">
@@ -56,7 +57,7 @@
         </a-plane>
       </a-marker>
 
-      <!-- PONTO D: Caixa Norton (Marcador Barcode 1) -->
+      <!-- PONTO D: Caixa Norton (Marcador Matriz D) -->
       <a-marker type="barcode" value="1">
         <a-box position="0 0.5 0" width="0.2" height="0.2" depth="0.2" color="#3498DB" animation="property: rotation; to: 0 360 0; loop: true; dur: 3000"></a-box>
         <a-plane position="0 1.2 0" rotation="-30 0 0" width="2.2" height="0.8" color="#111" opacity="0.9">
@@ -64,7 +65,7 @@
         </a-plane>
       </a-marker>
 
-      <!-- PONTO E: Avental do Carro (Marcador Barcode 2) -->
+      <!-- PONTO E: Avental do Carro (Marcador Matriz E) -->
       <a-marker type="barcode" value="2">
         <a-sphere position="0 0.5 0" radius="0.12" color="#9B59B6" animation="property: position; to: 0 0.6 0; dir: alternate; loop: true; dur: 1000"></a-sphere>
         <a-plane position="0 1.2 0" rotation="-30 0 0" width="2.2" height="0.8" color="#111" opacity="0.9">
@@ -72,7 +73,7 @@
         </a-plane>
       </a-marker>
 
-      <!-- PONTO F: Engrenagens da Lira (Marcador Barcode 3) -->
+      <!-- PONTO F: Engrenagens da Lira (Marcador Matriz F) -->
       <a-marker type="barcode" value="3">
         <a-cylinder position="0 0.5 0" radius="0.12" height="0.04" color="#E67E22" animation="property: rotation; to: 0 360 0; loop: true; dur: 3000"></a-cylinder>
         <a-plane position="0 1.2 0" rotation="-30 0 0" width="2.2" height="0.8" color="#111" opacity="0.9">
