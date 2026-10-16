@@ -67,7 +67,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        height: 240px;
+        height: 245px;
+        background-color: #fff;
       }
       .card-title {
         font-weight: bold;
@@ -79,10 +80,17 @@
         color: #333;
         margin-bottom: 5px;
       }
+      /* Moldura branca obrigatória ao redor do marcador */
+      .marker-box {
+        background-color: #ffffff;
+        padding: 10px;
+        border: 1px solid #ccc;
+        display: inline-block;
+      }
       .marker-img {
-        width: 125px;
-        height: 125px;
-        object-fit: contain;
+        width: 110px;
+        height: 110px;
+        display: block;
       }
       .card-footer {
         font-size: 0.7rem;
@@ -98,7 +106,6 @@
         <h1>SENAI - Manutenção Preventiva (Romi T240)</h1>
         <p>Etiquetas de Realidade Aumentada (AR) - Recorte nas linhas tracejadas e cole na máquina</p>
       </div>
-      <!-- QR Code dinâmico para abrir a aplicação -->
       <div class="qr-container">
         <img class="qr-code" src="https://quickchart.io/qr?text=https://cbaldez.github.io/torno-romi-t240/&size=150" alt="QR Code de Acesso" />
         <div class="qr-label">ESCANEIE PARA ABRIR</div>
@@ -112,109 +119,97 @@
           <div class="card-title">PONTO A: BARRAMENTO E GUIAS</div>
           <div class="card-subtitle">Óleo ISO VG 68 | Diária</div>
         </div>
-        <img class="marker-img" src="https://raw.githubusercontent.com/AR-js-org/AR.js/master/data/images/hiro.png" alt="Hiro" />
+        <div class="marker-box">
+          <img class="marker-img" src="https://raw.githubusercontent.com/AR-js-org/AR.js/master/data/images/hiro.png" alt="Hiro" />
+        </div>
         <div class="card-footer">Marcador: HIRO</div>
       </div>
 
-      <!-- PONTO B: Kanji (SVG Vetorial - Correção do Link Quebrado) -->
+      <!-- PONTO B: Kanji -->
       <div class="card">
         <div>
           <div class="card-title">PONTO B: ESFERAS DOS CARROS</div>
           <div class="card-subtitle">Óleo ISO VG 68 | Diária</div>
         </div>
-        <svg class="marker-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100" height="100" fill="black"/>
-          <rect x="20" y="20" width="60" height="60" fill="white"/>
-          <path d="M 35 30 H 65 V 36 H 35 Z M 47 36 H 53 V 70 H 47 Z M 32 48 H 68 V 54 H 32 Z M 35 64 H 65 V 70 H 35 Z" fill="black"/>
-        </svg>
+        <div class="marker-box">
+          <svg class="marker-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" fill="black"/>
+            <rect x="15" y="15" width="70" height="70" fill="white"/>
+            <path d="M 30 25 H 70 V 33 H 30 Z M 46 33 H 54 V 75 H 46 Z M 25 48 H 75 V 56 H 25 Z M 30 67 H 70 V 75 H 30 Z" fill="black"/>
+          </svg>
+        </div>
         <div class="card-footer">Marcador: KANJI</div>
       </div>
 
-      <!-- PONTO C: Barcode 0 -->
+      <!-- PONTO C: Barcode 0 (Corrigido matriz 3x3) -->
       <div class="card">
         <div>
           <div class="card-title">PONTO C: CABEÇOTE FIXO</div>
           <div class="card-subtitle">Óleo ISO VG 32 | Semestral</div>
         </div>
-        <svg class="marker-img" viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
-          <rect width="5" height="5" fill="black"/>
-          <rect x="1" y="1" width="3" height="3" fill="white"/>
-          <rect x="1" y="1" width="1" height="1" fill="black"/>
-          <rect x="2" y="1" width="1" height="1" fill="black"/>
-          <rect x="3" y="1" width="1" height="1" fill="black"/>
-          <rect x="1" y="2" width="1" height="1" fill="black"/>
-          <rect x="2" y="2" width="1" height="1" fill="white"/>
-          <rect x="3" y="2" width="1" height="1" fill="black"/>
-          <rect x="1" y="3" width="1" height="1" fill="black"/>
-          <rect x="2" y="3" width="1" height="1" fill="black"/>
-          <rect x="3" y="3" width="1" height="1" fill="black"/>
-        </svg>
+        <div class="marker-box">
+          <svg class="marker-img" viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+            <rect width="5" height="5" fill="black"/>
+            <rect x="1" y="1" width="3" height="3" fill="white"/>
+            <!-- Matriz 3x3 para Barcode 0: apenas o centro é branco -->
+            <rect x="1" y="1" width="3" height="3" fill="black"/>
+            <rect x="2" y="2" width="1" height="1" fill="white"/>
+          </svg>
+        </div>
         <div class="card-footer">Marcador: BARCODE 0</div>
       </div>
 
-      <!-- PONTO D: Barcode 1 -->
+      <!-- PONTO D: Barcode 1 (Corrigido matriz 3x3) -->
       <div class="card">
         <div>
           <div class="card-title">PONTO D: CAIXA NORTON</div>
           <div class="card-subtitle">Óleo ISO VG 150 | Semestral</div>
         </div>
-        <svg class="marker-img" viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
-          <rect width="5" height="5" fill="black"/>
-          <rect x="1" y="1" width="3" height="3" fill="white"/>
-          <rect x="1" y="1" width="1" height="1" fill="black"/>
-          <rect x="2" y="1" width="1" height="1" fill="black"/>
-          <rect x="3" y="1" width="1" height="1" fill="black"/>
-          <rect x="1" y="2" width="1" height="1" fill="black"/>
-          <rect x="2" y="2" width="1" height="1" fill="white"/>
-          <rect x="3" y="2" width="1" height="1" fill="white"/>
-          <rect x="1" y="3" width="1" height="1" fill="black"/>
-          <rect x="2" y="3" width="1" height="1" fill="black"/>
-          <rect x="3" y="3" width="1" height="1" fill="black"/>
-        </svg>
+        <div class="marker-box">
+          <svg class="marker-img" viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+            <rect width="5" height="5" fill="black"/>
+            <rect x="1" y="1" width="3" height="3" fill="white"/>
+            <!-- Matriz 3x3 para Barcode 1 -->
+            <rect x="1" y="1" width="3" height="3" fill="black"/>
+            <rect x="2" y="2" width="2" height="1" fill="white"/>
+          </svg>
+        </div>
         <div class="card-footer">Marcador: BARCODE 1</div>
       </div>
 
-      <!-- PONTO E: Barcode 2 -->
+      <!-- PONTO E: Barcode 2 (Corrigido matriz 3x3) -->
       <div class="card">
         <div>
           <div class="card-title">PONTO E: AVENTAL DO CARRO</div>
           <div class="card-subtitle">Óleo ISO VG 150 | Bimestral</div>
         </div>
-        <svg class="marker-img" viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
-          <rect width="5" height="5" fill="black"/>
-          <rect x="1" y="1" width="3" height="3" fill="white"/>
-          <rect x="1" y="1" width="1" height="1" fill="black"/>
-          <rect x="2" y="1" width="1" height="1" fill="black"/>
-          <rect x="3" y="1" width="1" height="1" fill="black"/>
-          <rect x="1" y="2" width="1" height="1" fill="black"/>
-          <rect x="2" y="2" width="1" height="1" fill="black"/>
-          <rect x="3" y="2" width="1" height="1" fill="white"/>
-          <rect x="1" y="3" width="1" height="1" fill="black"/>
-          <rect x="2" y="3" width="1" height="1" fill="black"/>
-          <rect x="3" y="3" width="1" height="1" fill="black"/>
-        </svg>
+        <div class="marker-box">
+          <svg class="marker-img" viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+            <rect width="5" height="5" fill="black"/>
+            <rect x="1" y="1" width="3" height="3" fill="white"/>
+            <!-- Matriz 3x3 para Barcode 2 -->
+            <rect x="1" y="1" width="3" height="3" fill="black"/>
+            <rect x="3" y="2" width="1" height="1" fill="white"/>
+          </svg>
+        </div>
         <div class="card-footer">Marcador: BARCODE 2</div>
       </div>
 
-      <!-- PONTO F: Barcode 3 -->
+      <!-- PONTO F: Barcode 3 (Corrigido matriz 3x3) -->
       <div class="card">
         <div>
           <div class="card-title">PONTO F: ENGRENAGENS LIRA</div>
           <div class="card-subtitle">Graxa NLGI 2 | Anual</div>
         </div>
-        <svg class="marker-img" viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
-          <rect width="5" height="5" fill="black"/>
-          <rect x="1" y="1" width="3" height="3" fill="white"/>
-          <rect x="1" y="1" width="1" height="1" fill="black"/>
-          <rect x="2" y="1" width="1" height="1" fill="black"/>
-          <rect x="3" y="1" width="1" height="1" fill="black"/>
-          <rect x="1" y="2" width="1" height="1" fill="black"/>
-          <rect x="2" y="2" width="1" height="1" fill="black"/>
-          <rect x="3" y="2" width="1" height="1" fill="black"/>
-          <rect x="1" y="3" width="1" height="1" fill="black"/>
-          <rect x="2" y="3" width="1" height="1" fill="white"/>
-          <rect x="3" y="3" width="1" height="1" fill="black"/>
-        </svg>
+        <div class="marker-box">
+          <svg class="marker-img" viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+            <rect width="5" height="5" fill="black"/>
+            <rect x="1" y="1" width="3" height="3" fill="white"/>
+            <!-- Matriz 3x3 para Barcode 3 -->
+            <rect x="1" y="1" width="3" height="3" fill="black"/>
+            <rect x="2" y="3" width="1" height="1" fill="white"/>
+          </svg>
+        </div>
         <div class="card-footer">Marcador: BARCODE 3</div>
       </div>
     </div>
