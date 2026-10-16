@@ -4,68 +4,110 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>Manutenção Preventiva - Romi T240 (SENAI)</title>
-    <!-- Biblioteca A-Frame -->
+    <!-- Biblioteca A-Frame 1.6.0 -->
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 
-    <!-- Ajuste CSS para reposicionar o botão VR no smartphone -->
+    <!-- Estilo para garantir visibilidade e posicionamento do botão VR no smartphone -->
     <style>
       .a-enter-vr {
         position: fixed !important;
-        bottom: 30px !important;  /* Eleva o botão para não ficar cortado */
-        right: 20px !important;   /* Afasta o botão do bordo direito */
+        bottom: 30px !important;
+        right: 20px !important;
         z-index: 9999 !important;
       }
     </style>
   </head>
   <body>
     <a-scene embedded vr-mode-ui="enabled: true" renderer="colorManagement: true;">
-      <!-- Iluminação -->
+      <!-- Iluminação da cena -->
       <a-ambient-light color="#FFF" intensity="0.8"></a-ambient-light>
-      <a-directional-light position="-1 2 1" intensity="0.5"></a-directional-light>
+      <a-directional-light position="-1 2 1" intensity="0.6"></a-directional-light>
 
-      <!-- Câmera com cursor de olhar -->
-      <a-entity position="0 1.6 2">
+      <!-- Câmera com mira vermelha (Gaze Interaction) -->
+      <a-entity position="0 1.6 2.2">
         <a-camera>
           <a-cursor
             id="cursor"
             color="#FF0000"
-            scale="0.02 0.02 0.02">
+            scale="0.02 0.02 0.02"
+            animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 0.02 0.02 0.02"
+            animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 0.02 0.02 0.02; to: 0.1 0.1 0.1">
           </a-cursor>
         </a-camera>
       </a-entity>
 
-      <!-- Modelo Simulado do Torno Romi T240 -->
+      <!-- Grupo do Torno Romi T240 -->
       <a-entity position="0 0 -1">
-        <!-- Base do Torno -->
-        <a-box position="0 0.4 0" width="1.8" height="0.8" depth="0.6" color="#2C3E50"></a-box>
-        <!-- Cabeçote Fixo -->
-        <a-box position="-0.6 1.0 0" width="0.6" height="0.6" depth="0.6" color="#7F8C8D"></a-box>
-        <!-- Barramento -->
-        <a-box position="0.2 0.8 0" width="1.0" height="0.1" depth="0.4" color="#BDC3C7"></a-box>
+        <!-- Base Principal da Máquina -->
+        <a-box position="0 0.4 0" width="2.2" height="0.8" depth="0.6" color="#2C3E50"></a-box>
+        <!-- Cabeçote Fixo (Lado Esquerdo) -->
+        <a-box position="-0.75 1.05 0" width="0.7" height="0.5" depth="0.6" color="#7F8C8D"></a-box>
+        <!-- Barramento Principal -->
+        <a-box position="0.25 0.82 0" width="1.3" height="0.08" depth="0.4" color="#BDC3C7"></a-box>
+        <!-- Carro Principal / Avental -->
+        <a-box position="0.1 0.95 0.1" width="0.35" height="0.25" depth="0.4" color="#34495E"></a-box>
+        <!-- Cabeçote Móvel (Lado Direito) -->
+        <a-box position="0.75 0.98 0" width="0.3" height="0.25" depth="0.3" color="#95A5A6"></a-box>
 
-        <!-- PONTO A: Barramento -->
-        <a-sphere id="ponto-barramento" position="0.2 0.9 0" radius="0.08" color="#E74C3C"></a-sphere>
+        <!-- PONTO A: Barramento e Guias (Vermelho) -->
+        <a-sphere id="ponto-A" position="0.35 0.9 0" radius="0.06" color="#E74C3C"></a-sphere>
 
-        <!-- PONTO C: Visor de Óleo do Cabeçote -->
-        <a-cylinder id="ponto-cabecote" position="-0.6 0.9 0.31" radius="0.06" height="0.02" rotation="90 0 0" color="#2ECC71"></a-cylinder>
+        <!-- PONTO B: Esferas de Lubrificação / Carros (Amarelo) -->
+        <a-sphere id="ponto-B" position="0.1 1.1 0.1" radius="0.05" color="#F1C40F"></a-sphere>
+
+        <!-- PONTO C: Visor de Óleo do Cabeçote Fixo (Verde) -->
+        <a-cylinder id="ponto-C" position="-0.75 0.95 0.31" radius="0.05" height="0.02" rotation="90 0 0" color="#2ECC71"></a-cylinder>
+
+        <!-- PONTO D: Caixa Norton de Engrenagens (Azul) -->
+        <a-box id="ponto-D" position="-0.75 0.6 0.31" width="0.12" height="0.12" depth="0.02" color="#3498DB"></a-box>
+
+        <!-- PONTO E: Avental do Carro Principal (Roxo) -->
+        <a-sphere id="ponto-E" position="0.1 0.75 0.31" radius="0.05" color="#9B59B6"></a-sphere>
+
+        <!-- PONTO F: Engrenagens da Grade / Lira (Laranja) -->
+        <a-cylinder id="ponto-F" position="-1.12 0.9 0" radius="0.06" height="0.03" rotation="0 0 90" color="#E67E22"></a-cylinder>
       </a-entity>
 
-      <!-- Painel de Informações UI em 3D -->
-      <a-plane position="0 2.3 -1" width="1.8" height="0.6" color="#111" opacity="0.9">
-        <a-text id="info-text" value="Mova o ponto vermelho sobre os marcadores no Torno T240 para ver a lubrificacao." 
-                align="center" width="1.6" color="#FFF" position="0 0 0.01"></a-text>
+      <!-- Painel de Informações 3D (Interface Superior) -->
+      <a-plane position="0 2.35 -1" width="2.1" height="0.7" color="#111" opacity="0.92">
+        <a-text id="info-text" 
+                value="PLANO DE LUBRIFICACAO - ROMI T240\n\nApunte o ponto vermelho sobre os marcadores (A a F)\npara visualizar o tipo de oleo, quantidade e frequencia." 
+                align="center" width="1.9" color="#FFF" position="0 0 0.01"></a-text>
       </a-plane>
     </a-scene>
 
+    <!-- Script de Interatividade -->
     <script>
       const infoText = document.querySelector('#info-text');
 
-      document.querySelector('#ponto-barramento').addEventListener('mouseenter', () => {
-        infoText.setAttribute('value', 'PONTO A: Barramento e Guias\nLubrificante: Oleo ISO VG 68\nFrequencia: Diaria\nMetodo: Camada fina com almotolia');
+      // Ponto A - Barramento
+      document.querySelector('#ponto-A').addEventListener('mouseenter', () => {
+        infoText.setAttribute('value', 'PONTO A: Barramento e Guias\nLubrificante: Oleo ISO VG 68 (ex: Mobil Vactra N2)\nFrequencia: Diaria\nMetodo: Camada fina com almotolia/pincel');
       });
 
-      document.querySelector('#ponto-cabecote').addEventListener('mouseenter', () => {
-        infoText.setAttribute('value', 'PONTO C: Cabecote Fixo\nLubrificante: Oleo ISO VG 32\nFrequencia: Checar diario / Troca semestral\nQtd: 5.5 Litros (centro do visor)');
+      // Ponto B - Esferas de Lubrificação
+      document.querySelector('#ponto-B').addEventListener('mouseenter', () => {
+        infoText.setAttribute('value', 'PONTO B: Esferas de Lubrificacao (Carros)\nLubrificante: Oleo ISO VG 68\nFrequencia: Diaria\nMetodo: 2 a 3 bombadas com bomba manual');
+      });
+
+      // Ponto C - Cabeçote Fixo
+      document.querySelector('#ponto-C').addEventListener('mouseenter', () => {
+        infoText.setAttribute('value', 'PONTO C: Cabecote Fixo\nLubrificante: Oleo ISO VG 32\nFrequencia: Checar diario / Troca semestral\nQuantidade: Aprox. 5,5 Litros (centro do visor)');
+      });
+
+      // Ponto D - Caixa Norton
+      document.querySelector('#ponto-D').addEventListener('mouseenter', () => {
+        infoText.setAttribute('value', 'PONTO D: Caixa de Engrenagens (Norton)\nLubrificante: Oleo ISO VG 150 (ex: Lubrax EFG 150)\nFrequencia: Troca semestral\nQuantidade: Aprox. 1,3 Litros');
+      });
+
+      // Ponto E - Avental
+      document.querySelector('#ponto-E').addEventListener('mouseenter', () => {
+        infoText.setAttribute('value', 'PONTO E: Avental do Carro Principal\nLubrificante: Oleo ISO VG 150\nFrequencia: Troca bimestral\nQuantidade: Aprox. 0,5 Litro');
+      });
+
+      // Ponto F - Engrenagens da Grade (Lira)
+      document.querySelector('#ponto-F').addEventListener('mouseenter', () => {
+        infoText.setAttribute('value', 'PONTO F: Engrenagens da Grade (Lira)\nLubrificante: Graxa de Litio NLGI 2\nFrequencia: Anual / Conforme necessidade\nMetodo: Aplicacao manual leve nas engrenagens');
       });
     </script>
   </body>
