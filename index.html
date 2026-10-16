@@ -4,8 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>Manutenção Preventiva - Romi T240 (SENAI)</title>
-    <!-- Versão 1.6.0 compatível com iOS e Android -->
+    <!-- Biblioteca A-Frame -->
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+
+    <!-- Ajuste CSS para reposicionar o botão VR no smartphone -->
+    <style>
+      .a-enter-vr {
+        position: fixed !important;
+        bottom: 30px !important;  /* Eleva o botão para não ficar cortado */
+        right: 20px !important;   /* Afasta o botão do bordo direito */
+        z-index: 9999 !important;
+      }
+    </style>
   </head>
   <body>
     <a-scene embedded vr-mode-ui="enabled: true" renderer="colorManagement: true;">
