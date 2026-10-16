@@ -2,31 +2,30 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>Manutenção Preventiva - Romi T240 (SENAI)</title>
-    <!-- Biblioteca A-Frame gratuita -->
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <!-- Versão 1.6.0 compatível com iOS e Android -->
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
   </head>
   <body>
-    <a-scene embedded vr-mode-ui="enabled: true">
+    <a-scene embedded vr-mode-ui="enabled: true" renderer="colorManagement: true;">
       <!-- Iluminação -->
       <a-ambient-light color="#FFF" intensity="0.8"></a-ambient-light>
       <a-directional-light position="-1 2 1" intensity="0.5"></a-directional-light>
 
-      <!-- Câmera com cursor de olhar (Gaze Interaction para Óculos Smartphone) -->
+      <!-- Câmera com cursor de olhar -->
       <a-entity position="0 1.6 2">
         <a-camera>
           <a-cursor
             id="cursor"
             color="#FF0000"
-            scale="0.02 0.02 0.02"
-            animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 0.02 0.02 0.02"
-            animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 0.02 0.02 0.02; to: 0.1 0.1 0.1">
+            scale="0.02 0.02 0.02">
           </a-cursor>
         </a-camera>
       </a-entity>
 
-      <!-- Representação Simplificada do Torno Romi T240 -->
-      <a-group position="0 0 -1">
+      <!-- Modelo Simulado do Torno Romi T240 -->
+      <a-entity position="0 0 -1">
         <!-- Base do Torno -->
         <a-box position="0 0.4 0" width="1.8" height="0.8" depth="0.6" color="#2C3E50"></a-box>
         <!-- Cabeçote Fixo -->
@@ -35,17 +34,15 @@
         <a-box position="0.2 0.8 0" width="1.0" height="0.1" depth="0.4" color="#BDC3C7"></a-box>
 
         <!-- PONTO A: Barramento -->
-        <a-sphere id="ponto-barramento" position="0.2 0.9 0" radius="0.06" color="#E74C3C">
-        </a-sphere>
+        <a-sphere id="ponto-barramento" position="0.2 0.9 0" radius="0.08" color="#E74C3C"></a-sphere>
 
         <!-- PONTO C: Visor de Óleo do Cabeçote -->
-        <a-cylinder id="ponto-cabecote" position="-0.6 0.9 0.31" radius="0.05" height="0.02" rotation="90 0 0" color="#2ECC71">
-        </a-cylinder>
-      </a-group>
+        <a-cylinder id="ponto-cabecote" position="-0.6 0.9 0.31" radius="0.06" height="0.02" rotation="90 0 0" color="#2ECC71"></a-cylinder>
+      </a-entity>
 
       <!-- Painel de Informações UI em 3D -->
-      <a-plane position="0 2.2 -1" width="1.8" height="0.6" color="#111" opacity="0.9">
-        <a-text id="info-text" value="Mova o ponto vermelho sobre os marcadores no Torno T240 para ver o plano de lubrificacao." 
+      <a-plane position="0 2.3 -1" width="1.8" height="0.6" color="#111" opacity="0.9">
+        <a-text id="info-text" value="Mova o ponto vermelho sobre os marcadores no Torno T240 para ver a lubrificacao." 
                 align="center" width="1.6" color="#FFF" position="0 0 0.01"></a-text>
       </a-plane>
     </a-scene>
