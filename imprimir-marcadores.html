@@ -82,13 +82,13 @@
       }
       .marker-box {
         background-color: #ffffff;
-        padding: 10px;
-        border: 1px solid #ccc;
+        padding: 12px;
+        border: 1px solid #ddd;
         display: inline-block;
       }
       .marker-img {
-        width: 115px;
-        height: 115px;
+        width: 120px;
+        height: 120px;
         display: block;
       }
       .card-footer {
@@ -121,7 +121,7 @@
         <div class="marker-box">
           <img class="marker-img" src="https://raw.githubusercontent.com/AR-js-org/AR.js/master/data/images/hiro.png" alt="Ponto A" />
         </div>
-        <div class="card-footer">MARCADOR LETRA A (HIRO)</div>
+        <div class="card-footer">MARCADOR HIRO (PONTO A)</div>
       </div>
 
       <!-- PONTO B: KANJI -->
@@ -137,79 +137,107 @@
             <path d="M 30 25 H 70 V 33 H 30 Z M 46 33 H 54 V 75 H 46 Z M 25 48 H 75 V 56 H 25 Z M 30 67 H 70 V 75 H 30 Z" fill="black"/>
           </svg>
         </div>
-        <div class="card-footer">MARCADOR LETRA B (KANJI)</div>
+        <div class="card-footer">MARCADOR KANJI (PONTO B)</div>
       </div>
 
-      <!-- PONTO C: LETRA C GRAVADA -->
+      <!-- PONTO C: BARCODE 0 (Oficial Matriz 3x3) -->
       <div class="card">
         <div>
           <div class="card-title">PONTO C: CABEÇOTE FIXO</div>
           <div class="card-subtitle">Óleo ISO VG 32 | Semestral</div>
         </div>
         <div class="marker-box">
-          <svg class="marker-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <rect width="100" height="100" fill="black"/>
-            <rect x="15" y="15" width="70" height="70" fill="white"/>
-            <!-- Moldura e Letra C bem visível no centro -->
-            <rect x="25" y="25" width="50" height="50" fill="black"/>
-            <rect x="38" y="38" width="24" height="24" fill="white"/>
+          <svg class="marker-img" viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+            <rect width="5" height="5" fill="black"/>
+            <rect x="1" y="1" width="3" height="3" fill="white"/>
+            <!-- Padrão oficial do Barcode 0 em matriz 3x3 -->
+            <rect x="1" y="1" width="1" height="1" fill="black"/>
+            <rect x="2" y="1" width="1" height="1" fill="black"/>
+            <rect x="3" y="1" width="1" height="1" fill="black"/>
+            <rect x="1" y="2" width="1" height="1" fill="black"/>
+            <rect x="2" y="2" width="1" height="1" fill="white"/>
+            <rect x="3" y="2" width="1" height="1" fill="black"/>
+            <rect x="1" y="3" width="1" height="1" fill="black"/>
+            <rect x="2" y="3" width="1" height="1" fill="black"/>
+            <rect x="3" y="3" width="1" height="1" fill="black"/>
           </svg>
         </div>
-        <div class="card-footer">ETIQUETA DO PONTO C</div>
+        <div class="card-footer">BARCODE 0 (PONTO C)</div>
       </div>
 
-      <!-- PONTO D: LETRA D GRAVADA -->
+      <!-- PONTO D: BARCODE 1 (Oficial Matriz 3x3) -->
       <div class="card">
         <div>
           <div class="card-title">PONTO D: CAIXA NORTON</div>
           <div class="card-subtitle">Óleo ISO VG 150 | Semestral</div>
         </div>
         <div class="marker-box">
-          <svg class="marker-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <rect width="100" height="100" fill="black"/>
-            <rect x="15" y="15" width="70" height="70" fill="white"/>
-            <!-- Moldura e Padrão D -->
-            <rect x="25" y="25" width="50" height="50" fill="black"/>
-            <rect x="38" y="38" width="30" height="24" fill="white"/>
+          <svg class="marker-img" viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+            <rect width="5" height="5" fill="black"/>
+            <rect x="1" y="1" width="3" height="3" fill="white"/>
+            <!-- Padrão oficial do Barcode 1 em matriz 3x3 -->
+            <rect x="1" y="1" width="1" height="1" fill="black"/>
+            <rect x="2" y="1" width="1" height="1" fill="black"/>
+            <rect x="3" y="1" width="1" height="1" fill="black"/>
+            <rect x="1" y="2" width="1" height="1" fill="black"/>
+            <rect x="2" y="2" width="1" height="1" fill="white"/>
+            <rect x="3" y="2" width="1" height="1" fill="white"/>
+            <rect x="1" y="3" width="1" height="1" fill="black"/>
+            <rect x="2" y="3" width="1" height="1" fill="black"/>
+            <rect x="3" y="3" width="1" height="1" fill="black"/>
           </svg>
         </div>
-        <div class="card-footer">ETIQUETA DO PONTO D</div>
+        <div class="card-footer">BARCODE 1 (PONTO D)</div>
       </div>
 
-      <!-- PONTO E: LETRA E GRAVADA -->
+      <!-- PONTO E: BARCODE 2 (Oficial Matriz 3x3) -->
       <div class="card">
         <div>
           <div class="card-title">PONTO E: AVENTAL DO CARRO</div>
           <div class="card-subtitle">Óleo ISO VG 150 | Bimestral</div>
         </div>
         <div class="marker-box">
-          <svg class="marker-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <rect width="100" height="100" fill="black"/>
-            <rect x="15" y="15" width="70" height="70" fill="white"/>
-            <!-- Moldura e Padrão E -->
-            <rect x="25" y="25" width="50" height="50" fill="black"/>
-            <rect x="52" y="38" width="16" height="24" fill="white"/>
+          <svg class="marker-img" viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+            <rect width="5" height="5" fill="black"/>
+            <rect x="1" y="1" width="3" height="3" fill="white"/>
+            <!-- Padrão oficial do Barcode 2 em matriz 3x3 -->
+            <rect x="1" y="1" width="1" height="1" fill="black"/>
+            <rect x="2" y="1" width="1" height="1" fill="black"/>
+            <rect x="3" y="1" width="1" height="1" fill="black"/>
+            <rect x="1" y="2" width="1" height="1" fill="black"/>
+            <rect x="2" y="2" width="1" height="1" fill="black"/>
+            <rect x="3" y="2" width="1" height="1" fill="white"/>
+            <rect x="1" y="3" width="1" height="1" fill="black"/>
+            <rect x="2" y="3" width="1" height="1" fill="black"/>
+            <rect x="3" y="3" width="1" height="1" fill="black"/>
           </svg>
         </div>
-        <div class="card-footer">ETIQUETA DO PONTO E</div>
+        <div class="card-footer">BARCODE 2 (PONTO E)</div>
       </div>
 
-      <!-- PONTO F: LETRA F GRAVADA -->
+      <!-- PONTO F: BARCODE 3 (Oficial Matriz 3x3) -->
       <div class="card">
         <div>
           <div class="card-title">PONTO F: ENGRENAGENS LIRA</div>
           <div class="card-subtitle">Graxa NLGI 2 | Anual</div>
         </div>
         <div class="marker-box">
-          <svg class="marker-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <rect width="100" height="100" fill="black"/>
-            <rect x="15" y="15" width="70" height="70" fill="white"/>
-            <!-- Moldura e Padrão F -->
-            <rect x="25" y="25" width="50" height="50" fill="black"/>
-            <rect x="38" y="52" width="24" height="16" fill="white"/>
+          <svg class="marker-img" viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+            <rect width="5" height="5" fill="black"/>
+            <rect x="1" y="1" width="3" height="3" fill="white"/>
+            <!-- Padrão oficial do Barcode 3 em matriz 3x3 -->
+            <rect x="1" y="1" width="1" height="1" fill="black"/>
+            <rect x="2" y="1" width="1" height="1" fill="black"/>
+            <rect x="3" y="1" width="1" height="1" fill="black"/>
+            <rect x="1" y="2" width="1" height="1" fill="black"/>
+            <rect x="2" y="2" width="1" height="1" fill="black"/>
+            <rect x="3" y="2" width="1" height="1" fill="black"/>
+            <rect x="1" y="3" width="1" height="1" fill="black"/>
+            <rect x="2" y="3" width="1" height="1" fill="white"/>
+            <rect x="3" y="3" width="1" height="1" fill="black"/>
           </svg>
         </div>
-        <div class="card-footer">ETIQUETA DO PONTO F</div>
+        <div class="card-footer">BARCODE 3 (PONTO F)</div>
       </div>
     </div>
   </body>
