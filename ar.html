@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>AR - Torno Romi T240 (SENAI)</title>
-    <!-- Bibliotecas WebXR e AR.js -->
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <!-- Usa A-Frame 1.3.0 e AR.js master compatíveis com Barcodes -->
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <style>
       .btn-voltar {
@@ -27,17 +27,20 @@
     </style>
   </head>
   <body style="margin: 0px; overflow: hidden;">
-    <!-- Botão de retorno ao menu inicial -->
+    <!-- Botão para voltar ao menu -->
     <a href="index.html" class="btn-voltar">← Voltar ao Menu</a>
 
-    <!-- A-Scene otimizada para matriz 3x3 e deteção de alta resolução -->
-    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; maxDetectionRate: 60; canvasWidth: 1280; canvasHeight: 960; patternRatio: 0.75;">
+    <!-- Configuração da Cena AR para Matrizes 3x3 -->
+    <a-scene
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; maxDetectionRate: 60; canvasWidth: 1280; canvasHeight: 960;"
+      vr-mode-ui="enabled: false">
 
       <!-- PONTO A: Barramento e Guias (Marcador Hiro) -->
       <a-marker preset="hiro">
         <a-sphere position="0 0.5 0" radius="0.12" color="#E74C3C" animation="property: position; to: 0 0.6 0; dir: alternate; loop: true; dur: 1000"></a-sphere>
         <a-plane position="0 1.2 0" rotation="-30 0 0" width="2.2" height="0.8" color="#111" opacity="0.9">
-          <a-text value="PONTO A: BARRAMENTO E GUIAS\n\n- Lubrificante: Oleo ISO VG 68\n- Frequencia: Diaria\n- Metodo: Camada fina com almotolia" align="center" width="2.0" color="#FFF" position="0 0 0.01"></a-text>
+          <a-text value="PONTO A: BARRAMENTO E GUIAS\n\n- Oleo ISO VG 68\n- Frequencia: Diaria\n- Metodo: Almotolia" align="center" width="2.0" color="#FFF" position="0 0 0.01"></a-text>
         </a-plane>
       </a-marker>
 
@@ -45,39 +48,39 @@
       <a-marker preset="kanji">
         <a-sphere position="0 0.5 0" radius="0.12" color="#F1C40F" animation="property: position; to: 0 0.6 0; dir: alternate; loop: true; dur: 1000"></a-sphere>
         <a-plane position="0 1.2 0" rotation="-30 0 0" width="2.2" height="0.8" color="#111" opacity="0.9">
-          <a-text value="PONTO B: ESFERAS DOS CARROS\n\n- Lubrificante: Oleo ISO VG 68\n- Frequencia: Diaria\n- Metodo: 2 a 3 bombadas manuais" align="center" width="2.0" color="#FFF" position="0 0 0.01"></a-text>
+          <a-text value="PONTO B: ESFERAS DOS CARROS\n\n- Oleo ISO VG 68\n- Frequencia: Diaria\n- Metodo: 2-3 bombadas" align="center" width="2.0" color="#FFF" position="0 0 0.01"></a-text>
         </a-plane>
       </a-marker>
 
-      <!-- PONTO C: Cabeçote Fixo (Marcador Barcode 0) -->
+      <!-- PONTO C: Cabeçote Fixo (Barcode 0) -->
       <a-marker type="barcode" value="0">
         <a-cylinder position="0 0.5 0" radius="0.12" height="0.04" color="#2ECC71" animation="property: rotation; to: 0 360 0; loop: true; dur: 3000"></a-cylinder>
         <a-plane position="0 1.2 0" rotation="-30 0 0" width="2.2" height="0.8" color="#111" opacity="0.9">
-          <a-text value="PONTO C: CABECOTE FIXO\n\n- Lubrificante: Oleo ISO VG 32\n- Frequencia: Checar diario / Semestral\n- Qtd: 5,5 Litros (centro do visor)" align="center" width="2.0" color="#FFF" position="0 0 0.01"></a-text>
+          <a-text value="PONTO C: CABECOTE FIXO\n\n- Oleo ISO VG 32\n- Frequencia: Semestral\n- Qtd: 5,5 Litros" align="center" width="2.0" color="#FFF" position="0 0 0.01"></a-text>
         </a-plane>
       </a-marker>
 
-      <!-- PONTO D: Caixa Norton (Marcador Barcode 1) -->
+      <!-- PONTO D: Caixa Norton (Barcode 1) -->
       <a-marker type="barcode" value="1">
         <a-box position="0 0.5 0" width="0.2" height="0.2" depth="0.2" color="#3498DB" animation="property: rotation; to: 0 360 0; loop: true; dur: 3000"></a-box>
         <a-plane position="0 1.2 0" rotation="-30 0 0" width="2.2" height="0.8" color="#111" opacity="0.9">
-          <a-text value="PONTO D: CAIXA NORTON\n\n- Lubrificante: Oleo ISO VG 150\n- Frequencia: Troca semestral\n- Qtd: Aprox. 1,3 Litros" align="center" width="2.0" color="#FFF" position="0 0 0.01"></a-text>
+          <a-text value="PONTO D: CAIXA NORTON\n\n- Oleo ISO VG 150\n- Frequencia: Semestral\n- Qtd: 1,3 Litros" align="center" width="2.0" color="#FFF" position="0 0 0.01"></a-text>
         </a-plane>
       </a-marker>
 
-      <!-- PONTO E: Avental do Carro (Marcador Barcode 2) -->
+      <!-- PONTO E: Avental do Carro (Barcode 2) -->
       <a-marker type="barcode" value="2">
         <a-sphere position="0 0.5 0" radius="0.12" color="#9B59B6" animation="property: position; to: 0 0.6 0; dir: alternate; loop: true; dur: 1000"></a-sphere>
         <a-plane position="0 1.2 0" rotation="-30 0 0" width="2.2" height="0.8" color="#111" opacity="0.9">
-          <a-text value="PONTO E: AVENTAL DO CARRO\n\n- Lubrificante: Oleo ISO VG 150\n- Frequencia: Troca bimestral\n- Qtd: Aprox. 0,5 Litro" align="center" width="2.0" color="#FFF" position="0 0 0.01"></a-text>
+          <a-text value="PONTO E: AVENTAL DO CARRO\n\n- Oleo ISO VG 150\n- Frequencia: Bimestral\n- Qtd: 0,5 Litro" align="center" width="2.0" color="#FFF" position="0 0 0.01"></a-text>
         </a-plane>
       </a-marker>
 
-      <!-- PONTO F: Engrenagens da Lira (Marcador Barcode 3) -->
+      <!-- PONTO F: Engrenagens da Lira (Barcode 3) -->
       <a-marker type="barcode" value="3">
         <a-cylinder position="0 0.5 0" radius="0.12" height="0.04" color="#E67E22" animation="property: rotation; to: 0 360 0; loop: true; dur: 3000"></a-cylinder>
         <a-plane position="0 1.2 0" rotation="-30 0 0" width="2.2" height="0.8" color="#111" opacity="0.9">
-          <a-text value="PONTO F: ENGRENAGENS DA LIRA\n\n- Lubrificante: Graxa NLGI 2\n- Frequencia: Anual / Necessidade\n- Metodo: Aplicacao manual leve" align="center" width="2.0" color="#FFF" position="0 0 0.01"></a-text>
+          <a-text value="PONTO F: ENGRENAGENS LIRA\n\n- Graxa NLGI 2\n- Frequencia: Anual\n- Metodo: Aplicacao leve" align="center" width="2.0" color="#FFF" position="0 0 0.01"></a-text>
         </a-plane>
       </a-marker>
 
